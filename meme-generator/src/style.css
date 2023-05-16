@@ -40,3 +40,18 @@ main {
     gap: 17px;
     margin-bottom: 17px;
 }
+
+.meme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bottom {
+    
+}
+
+.top {
+    
+}
