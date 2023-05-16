@@ -1,13 +1,11 @@
 import React from "react"
 
 export default function Meme() {
-
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
-
     const [allMemes, setAllMemes] = React.useState([])
     
     React.useEffect(() => {
@@ -29,8 +27,12 @@ export default function Meme() {
         const url = allMemes[randomNumber].url
         setMeme(prevMeme => Object.assign({}, prevMeme, { randomImage: url }));
     }
-
-
+    
+    function handleChange(event) {
+        const {name, value} = event.target
+        setMeme(prevMeme => Object.assign({}, prevMeme, { [name]: value }));
+    }
+    
     return (
         <main>
             <div className="form">
@@ -39,18 +41,20 @@ export default function Meme() {
                     placeholder="Top text"
                     className="form--input"
                     name="topText"
-                    
+                    value={meme.topText}
+                    onChange={handleChange}
                 />
                 <input 
                     type="text"
                     placeholder="Bottom text"
                     className="form--input"
                     name="bottomText"
-                   
+                    value={meme.bottomText}
+                    onChange={handleChange}
                 />
                 <button 
                     className="form--button"
-                   
+                    onClick={getMemeImage}
                 >
                     Get a new meme image 
                 </button>
