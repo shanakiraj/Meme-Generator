@@ -1,11 +1,13 @@
 import React from "react"
 
 export default function Meme() {
+
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
+
     const [allMemes, setAllMemes] = React.useState([])
     
     React.useEffect(() => {
@@ -16,9 +18,7 @@ export default function Meme() {
             
         }
         getMemes()
-        
         return () => {
-            
         }
     }, [])
     
@@ -58,6 +58,14 @@ export default function Meme() {
                 >
                     Get a new meme image 
                 </button>
+                <a
+                    href={meme.randomImage}
+                    download
+                    className="form--button"
+                >
+                    Download meme
+                </a>
+                
             </div>
             <div className="meme">
                 <img src={meme.randomImage} className="meme--image" />
