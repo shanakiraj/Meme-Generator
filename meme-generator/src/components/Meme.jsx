@@ -58,13 +58,6 @@ export default function Meme() {
                 >
                     Get a new meme image 
                 </button>
-                <a
-                    href={meme.randomImage}
-                    download
-                    className="form--button"
-                >
-                    Download meme
-                </a>
                 
             </div>
             <div className="meme">
